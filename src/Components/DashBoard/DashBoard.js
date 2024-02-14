@@ -82,12 +82,24 @@ function DashBoard() {
     setSelectedTodo(todo);
     
   };
+
   
+  
+  const onDelete = (id) => {
+    const updatedTodos = { ...todos };
+    delete updatedTodos[id];
+    setTodos(updatedTodos);
+  };
+
+
+
+
+
 
 
   return (
     <div>
-      <div className=" grid grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 sm:gap-4 grid-rows-2">
         <div class="right">
           <img className="ml-10 mt-12" src={vector} alt="logo" />
           <div className="flex flex-col justify-center items-center mt-32">
@@ -128,15 +140,16 @@ function DashBoard() {
         </div>
 
         <div className="left">
-          <div className="ml-6 py-6 font-bold">TODO LIST</div>
+          <div className="sm:ml-6 sm:py-6 font-bold text-center pt-6">TODO LIST</div>
 
           <div className="ml-6 py-2 flex flex-row items-center justify-between pr-5">
-            <form className="w-[238px] relative">
+            <form className="sm:w-[238px] w-[190px] relative">
               <div className="relative">
                 <input
                   type="search"
                   placeholder="Search anything.."
                   className="w-full p-2 rounded-lg bg-slate-200"
+                  
                 />
                 <button className="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-slate-200 rounded-full">
                   <CiSearch />
@@ -157,25 +170,25 @@ function DashBoard() {
                   <div className="py-1">
                     <a
                       onClick={() => setFilter("all")}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                     >
                       All
                     </a>
                     <a
                       onClick={() => setFilter("completed")}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                     >
                       Completed
                     </a>
                     <a
                       onClick={() => setFilter("favorited")}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                     >
                       Favourited
                     </a>
                     <a
                       onClick={() => setFilter("deleted")}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                     >
                       Deleted
                     </a>
@@ -211,19 +224,22 @@ function DashBoard() {
                                 
                                 <a
                                   // onClick={() => setFilter("completed")}
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                                 >
                                   Completed
                                 </a>
                                 <a
                                   // onClick={() => setFilter("favorited")}
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                                 >
                                   Favourited
                                 </a>
                                 <a
-                                  // onClick={() => setFilter("deleted")}
-                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                  
+                                  // id="delete"
+                                  //  onClick={() => onDelete(key)}
+                                  onClick={() => onDelete(key)}
+                                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                                 >
                                   Deleted
                                 </a>
@@ -237,7 +253,7 @@ function DashBoard() {
                     <hr />
                   </>
                 )}
-                {filter == "favorite" && value["is_favorited"] == 1 && (
+                {filter === "favorite" && value["is_favorited"] === 1 && (
                   <>
                     <div className="flex flex-row justify-between px-5">
                       <div className=" flex flex-col justify-between">
@@ -256,7 +272,7 @@ function DashBoard() {
                     <hr />
                   </>
                 )}
-                {filter == "deleted" && value["is_deleted"] == 1 && (
+                {filter === "deleted" && value["is_deleted"] === 1 && (
                   <>
                     <div className="flex flex-row justify-between px-5">
                       <div className=" flex flex-col justify-between">
@@ -275,7 +291,7 @@ function DashBoard() {
                     <hr />
                   </>
                 )}
-                {filter == "completed" && value["is_completed"] == 1 && (
+                {filter === "completed" && value["is_completed"] === 1 && (
                   <>
                     <div className="flex flex-row justify-between px-5">
                       <div className=" flex flex-col justify-between">
