@@ -1,0 +1,71 @@
+.sign-up{
+    width: 1600px;
+height: 1024px;
+color: #FFFFFF;
+
+}
+.vector-image{
+    width: 44px;
+height: 65.76px;
+top: 80px;
+left: 108px;
+color: #00314F;
+
+}
+.login-text{
+    width: 101.04px;
+height: 40px;
+top: 364px;
+left: 374px;
+font-family: Roboto;
+font-size: 33px;
+font-weight: 500;
+line-height: 39px;
+letter-spacing: 0em;
+text-align: left;
+color: #000000D9;
+
+}
+.content-text{
+    width: 516px;
+height: 123px;
+top: 431px;
+left: 170px;
+font-family: Roboto;
+font-size: 20px;
+font-weight: 400;
+line-height: 30px;
+letter-spacing: 0em;
+text-align: center;
+color: #0000008C;
+
+
+}
+
+.auth-button{
+    width: 387px;
+height: 69px;
+top: 611px;
+left: 216px;
+
+}
+.sign-button{
+    width: 287px;
+height: 47px;
+top: 629px;
+/* left: 316px; */
+font-family: Roboto;
+font-size: 10px;
+font-weight: 100;
+line-height: 30px;
+letter-spacing: 0em;
+/* text-align: left; */
+
+}
+.grommet-icon{
+    width: 12px;
+height: 12px;
+top: 628px;
+left: 232px;
+
+}
